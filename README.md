@@ -1,4 +1,5 @@
 Description
+
 FarmerZone is a web-based application built using PHP and MySQL to help farmers connect with buyers. The system allows users to view crop details and supports basic data storage using a database.
 
 Tech Stack
