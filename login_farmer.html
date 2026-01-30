@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Custom styles specific to this page */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1559884743-74a57598c6c7?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #f8f9fa;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            background-color: #343a40 !important;
+            width: 100%;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 400px;
+            /* Adjust max-width as needed */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-login {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-register {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-register:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.php">Home</a>
+    </nav>
+    <div class="container">
+        <h2 class="text-center">Farmer Login</h2>
+        <form action="php/login_farmer.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-login">Login</button>
+            <a href="register_farmer.html" class="btn btn-register">Register</a>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Zone Web App Project</title>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styling for the layout */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .navbar h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .team-members {
+            margin-bottom: 20px;
+        }
+
+        .member {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .member img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .member-details {
+            flex: 1;
+        }
+
+        .project-summary {
+            margin-top: 20px;
+        }
+
+        .project-summary p {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>FarmerZone</h1>
+    <div>
+        <a href="index.php">Home</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Team Members</h2>
+    <div class="team-members">
+        <div class="member">
+            <img src="images/mem1.png" alt="Member 1">
+            <div class="member-details">
+                <h3>Member 1</h3>
+                <p>Name: Member 1 Name</p>
+                <p>Semester: Semester Number</p>
+                <p>USN: Member 1 USN</p>
+            </div>
+        </div>
+        <div class="member">
+            <img src="images/mem2.png" alt="Member 2">
+            <div class="member-details">
+                <h3>Member 2</h3>
+                <p>Name: Member 2 Name</p>
+                <p>Semester: Semester Number</p>
+                <p>USN: Member 2 USN</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Project Summary</h2>
+    <div class="project-summary">
+        <p>
+            <b>Introduction:</b>
+            The Farmer Zone web application is designed to facilitate direct interaction between farmers and consumers in the agricultural sector. It serves as a platform where farmers can list their products, and consumers can browse and directly contact farmers to purchase goods. This theoretical explanation outlines the core functionalities and features of the Farmer Zone web app.
+            <br><br>
+            <b>Objectives:</b>
+            <b>Connecting Farmers and Consumers:</b> The primary goal is to eliminate intermediaries and enable direct communication between farmers and consumers. This fosters transparency and supports local agriculture.
+            <br><br>
+            <b>Promoting Local Products:</b> By showcasing locally grown produce, the app encourages consumers to support regional farmers, promoting sustainability and community welfare.
+            <br><br>
+            <b>Facilitating Direct Transactions:</b> Consumers can view farmer profiles, product details, and contact information, enabling them to connect directly with farmers to purchase goods.
+            <br><br>
+            <b>Key Features:</b>
+            <b>User Roles and Authentication:</b><br>
+            <b>Farmers:</b> Farmers register accounts, create profiles, and list their products with details such as name, description, price, and contact information.
+            <br><b>Consumers:</b> Users browse products listed by farmers, view farmer profiles, and contact farmers directly via provided contact details (phone number or email).
+            <br><br><b>Product Listings:</b><br>
+            <b> Farmers:</b> They add products to their profile, including details like product name, description, pricing, and available quantity.
+            <br><b>Consumers:</b> They browse products categorized by type or farmer, view detailed product descriptions, and contact farmers for more information.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

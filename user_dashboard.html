@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better readability */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Adjust margin for better spacing */
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .cart-icon {
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .navbar .cart-icon .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- <a href="index.php">Home</a> -->
+        <a href="http://localhost/Farmer/index.php">Logout</a>
+        <a href="user_cart.html" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cart-count">0</span>
+        </a>
+    </nav>
+    <div class="container">
+        <h2>Consumer Dashboard</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Welcome, <span id="username"></span>!</h5>
+                <p class="card-text">Email: <span id="email"></span></p>
+                <p class="card-text">Account Type: Consumer</p>
+            </div>
+        </div>
+        <h3>Available Products</h3>
+        <div class="row" id="product-list">
+            <!-- Products will be loaded here dynamically -->
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch user data and display it on the dashboard
+            fetch('php/get_user_data.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('username').textContent = data.username;
+                    document.getElementById('email').textContent = data.email;
+                });
+
+            // Fetch products and display them
+            fetch('php/fetch_products.php')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('product-list').innerHTML = html;
+                    attachAddToCartButtons();
+                    updateCartCount();
+                });
+
+            function attachAddToCartButtons() {
+                const buttons = document.querySelectorAll('.add-to-cart');
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const productId = this.getAttribute('data-product-id');
+                        addToCart(productId);
+                    });
+                });
+            }
+
+            function addToCart(productId) {
+                fetch('php/add_to_cart.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ productId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Product added to cart');
+                        updateCartCount();
+                        document.querySelector(`.add-to-cart[data-product-id="${productId}"]`).innerText = 'Added';
+                    } else {
+                        alert('Failed to add product to cart');
+                    }
+                });
+            }
+
+            function updateCartCount() {
+                fetch('php/get_cart_count.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('cart-count').innerText = data.count;
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

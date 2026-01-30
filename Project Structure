@@ -1,0 +1,27 @@
+FarmerZone-WebApp/
+├── css/
+│   └── styles.css
+├── js/
+│   └── scripts.js
+├── images/
+│   └── sample.jpg
+├── index.html
+├── register_farmer.html
+├── register_user.html
+├── login_farmer.html
+├── login_user.html
+├── product_listing.html
+├── product_details.html
+├── farmer_dashboard.html
+├── user_dashboard.html
+├── php/
+│   ├── config.php
+│   ├── register_farmer.php
+│   ├── register_user.php
+│   ├── login_farmer.php
+│   ├── login_user.php
+│   ├── add_product.php
+│   ├── fetch_products.php
+│   └── view_product.php
+└── sql/
+    └── schema.sql
